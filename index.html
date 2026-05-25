@@ -967,6 +967,7 @@
     }
 
     .featured-dot {
+      position: relative;
       width: 34px;
       height: 5px;
       padding: 0;
@@ -974,12 +975,37 @@
       border-radius: 999px;
       background: rgba(18, 20, 23, 0.18);
       cursor: pointer;
+      overflow: hidden;
       transition: width 180ms ease, background 180ms ease;
     }
 
     .featured-dot.is-active {
-      width: 54px;
+      width: 64px;
+      background: rgba(15, 118, 110, 0.18);
+    }
+
+    .featured-dot.is-active::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
       background: var(--brand);
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    .featured-dot.is-active.is-progressing::after {
+      animation: featured-progress 3600ms linear forwards;
+    }
+
+    .featured-showcase:hover .featured-dot.is-active::after {
+      animation-play-state: paused;
+    }
+
+    @keyframes featured-progress {
+      to {
+        transform: scaleX(1);
+      }
     }
 
     .text-link {
@@ -2642,8 +2668,20 @@
       const featuredDetails = [...featuredWork.querySelectorAll("[data-featured-detail]")];
       const featuredControls = [...featuredWork.querySelectorAll("[data-featured-control]")];
       const stackClasses = ["is-active", "is-next", "is-third", "is-back"];
+      const featuredDelay = 3600;
       let activeFeaturedIndex = 0;
-      let featuredTimer = window.setInterval(showNextFeatured, 3600);
+      let featuredTimer = window.setInterval(showNextFeatured, featuredDelay);
+
+      function restartFeaturedProgress() {
+        featuredControls.forEach((control) => control.classList.remove("is-progressing"));
+
+        const activeControl = featuredControls[activeFeaturedIndex];
+
+        if (activeControl) {
+          void activeControl.offsetWidth;
+          activeControl.classList.add("is-progressing");
+        }
+      }
 
       function setFeaturedProject(index) {
         activeFeaturedIndex = index;
@@ -2665,6 +2703,8 @@
           control.classList.toggle("is-active", isActive);
           control.setAttribute("aria-pressed", String(isActive));
         });
+
+        restartFeaturedProgress();
       }
 
       function showNextFeatured() {
@@ -2676,7 +2716,8 @@
           window.clearInterval(featuredTimer);
         }
 
-        featuredTimer = window.setInterval(showNextFeatured, 3600);
+        featuredTimer = window.setInterval(showNextFeatured, featuredDelay);
+        restartFeaturedProgress();
       }
 
       setFeaturedProject(0);

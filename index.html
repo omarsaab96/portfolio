@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Omar Saab — Full Stack Developer</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+    }
+
+    .hero h4 {
+      font-weight: 400;
+      opacity: 0.8;
+      font-size: clamp(16px, 2.4vw, 20px);
+    }
+
+    .hero p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .hero-img-wrapper {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .hero-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info-line {
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .info-line a {
+      color: dodgerblue;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .info-line a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      font-size: clamp(22px, 3vw, 28px);
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+
+    /* PROJECT CARDS */
+    .project-card {
+      border: 1px solid #e7e7e7;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.25s ease;
+      background: #fff;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-card span {
+      font-size: 13px;
+      opacity: 0.8;
+      display: inline-block;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+
+    .project-card h5,
+    .project-card h6 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .category-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    a.visit-link {
+      color: dodgerblue;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      word-break: break-all;
+    }
+
+    a.visit-link:hover {
+      text-decoration: underline;
+    }
+
+    /* FEATURED IMAGES */
+    .featured-thumb {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .footer {
+      padding: 30px 10px 16px;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    /* RESPONSIVE TWEAKS */
+    @media (max-width: 767.98px) {
+      .hero {
+        padding: 40px 0 28px;
+      }
+
+      .hero .col-md-5,
+      .hero .col-md-7 {
+        text-align: center;
+      }
+
+      .hero-img-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero .info-line {
+        justify-content: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-left {
+        padding-right: 24px;
+      }
+
+      .hero-right {
+        padding-left: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO SECTION -->
+  <div class="container hero">
+    <div class="row align-items-center">
+      <div class="col-md-5 hero-left mb-4 mb-md-0">
+        <div class="hero-img-wrapper">
+          <img src="me.png" alt="Omar Saab">
+        </div>
+
+        <div class="mt-3">
+          <div class="info-line"><b>Location:</b> Beirut, Lebanon</div>
+          <div class="info-line">
+            <b>Email:</b>
+            <a href="mailto:omar.saab.96@gmail.com">omar.saab.96@gmail.com</a>
+          </div>
+          <div class="info-line">
+            <b>Phone:</b>
+            <a href="tel:+96170433863">+961 70 433863</a>
+          </div>
+          <div class="info-line">
+            <b>LinkedIn:</b>
+            <a href="https://www.linkedin.com/in/omarsaab96/" target="_blank">linkedin.com/in/omarsaab96</a>
+          </div>
+          <div class="info-line">
+            <b>Download CV:</b>
+            <a href="omarsaab_cv.pdf" target="_blank">PDF File</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7 hero-right">
+        <h1>Omar N. Saab</h1>
+        <h4>Full-Stack Web Developer</h4>
+
+        <p class="mt-4">
+          I craft modern, scalable and high-performance digital experiences.
+          With extensive experience across enterprise-level systems, banking,
+          luxury retail, medical, and government platforms, I help businesses
+          build fast, elegant and reliable solutions.
+        </p>
+        <p>
+          My work spans frontend, backend, architecture, API engineering,
+          system design, and complete platform development.
+          Below is a selection of digital products I contributed to.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://www.linkedin.com/in/omarsaab96/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary btn-sm d-inline-flex align-items-center rounded-3 gap-2">
+
+            <!-- LinkedIn Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="14" height="14" viewBox="0 0 24 24"
+                 fill="currentColor" class="me-1">
+              <path
+                d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.25h4.52V24H.24V8.25zM8.34 8.25h4.33v2.13h.06c.6-1.14 2.08-2.34 4.28-2.34 4.57 0 5.41 3 5.41 6.9V24h-4.52v-7.4c0-1.76-.03-4.03-2.46-4.03-2.46 0-2.84 1.92-2.84 3.9V24H8.34V8.25z" />
+            </svg>
+            <span>Check my profile on LinkedIn</span>
+          </a>
+
+          <a href="https://wa.me/96170433863"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-success btn-sm d-inline-flex align-items-center rounded-3 gap-2"
+             style="background-color:#25D366; border-color:#25D366;">
+
+            <!-- WhatsApp Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="14" height="14" viewBox="0 0 24 24"
+                 fill="currentColor" class="me-1">
+              <path
+                d="M20.52 3.48A11.8 11.8 0 0012 0a11.93 11.93 0 00-8.48 20.4L0 24l3.72-3.52A11.87 11.87 0 0012 24a11.8 11.8 0 008.52-3.48A11.8 11.8 0 0024 12a11.8 11.8 0 00-3.48-8.52zM12 21.6a9.6 9.6 0 01-5.12-1.5l-.36-.21-2.2 2.08 2.32-2.28-.24-.36A9.52 9.52 0 1121.6 12 9.61 9.61 0 0112 21.6zm5.44-7.16c-.28-.14-1.64-.82-1.9-.92s-.44-.14-.62.14-.72.92-.88 1.1-.32.2-.6.06a7.86 7.86 0 01-2.34-1.44 8.7 8.7 0 01-1.62-2c-.16-.28 0-.44.12-.58s.28-.32.42-.48.18-.28.28-.46a.52.52 0 000-.52c-.06-.14-.62-1.5-.86-2.06s-.46-.44-.62-.46h-.52a1 1 0 00-.72.34 3 3 0 00-.94 2.22 5.2 5.2 0 001.08 2.74 11.7 11.7 0 004.5 4.06 15.1 15.1 0 001.54.58 3.7 3.7 0 001.72.1 2.88 2.88 0 001.9-1.34 2.34 2.34 0 00.16-1.34c-.08-.14-.26-.22-.54-.36z" />
+            </svg>
+
+            <span>Chat with me on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- PROJECT SECTION -->
+  <div class="container">
+
+    <!-- FEATURED PROJECTS SECTION -->
+    <h2 class="section-title mt-4">Featured Projects</h2>
+    <p class="mb-4">Some highlighted projects showcasing my most impactful work.</p>
+
+    <div class="row g-4">
+      <!-- Featured Item 1 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="project-card p-0 overflow-hidden">
+          <img src="proj1.png" class="featured-thumb" alt="Masarak Platform">
+          <div class="p-3">
+            <h6 class="mb-1">Masarak Platform</h6>
+            <span>Logistics &amp; Port Operations</span><br>
+            <a class="visit-link" href="https://masarak.gwy.iq/" target="_blank">View Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Item 2 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="project-card p-0 overflow-hidden">
+          <img src="proj2.png" class="featured-thumb" alt="AI Grocery Shopping">
+          <div class="p-3">
+            <h6 class="mb-1">AI Grocery Shopping</h6>
+            <span>50,000+ product ingestion</span><br>
+            <a class="visit-link" href="https://fruugle.ai/" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Item 3 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="project-card p-0 overflow-hidden">
+          <img src="proj3.png" class="featured-thumb" alt="ZER01NE">
+          <div class="p-3">
+            <h6 class="mb-1">ZER01NE</h6>
+            <span>Software development agency</span><br>
+            <a class="visit-link" href="http://zeroone-code.com/" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Item 4 -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="project-card p-0 overflow-hidden">
+          <img src="proj4.png" class="featured-thumb" alt="Riyadah App">
+          <div class="p-3">
+            <h6 class="mb-1">Riyadah App</h6>
+            <span>Sports platform for clubs and athletes</span><br>
+            <a class="visit-link" href="#" target="_blank">Website coming soon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SELECTED WORK -->
+    <h2 class="section-title">Selected Work</h2>
+    <p class="mb-4">A curated list of projects and digital platforms I have worked on across different industries.</p>
+
+    <!-- LUXURY -->
+    <h4 class="mt-4 mb-3">Luxury Watches &amp; Jewellery</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <span class="category-label">Official Rolex &amp; Tudor Retailer</span>
+          <h5>A&amp;S Chronora</h5>
+          <span>https://www.chronora.com/</span><br>
+          <a class="visit-link" href="https://www.chronora.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Maison Cadrans</h5>
+          <span>https://www.maisoncadrans.com/</span><br>
+          <a class="visit-link" href="https://www.maisoncadrans.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BANKING -->
+    <h4 class="mt-5 mb-3">Banking &amp; Finance</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Sloth Token</h5>
+          <span>https://sloth-token.com/</span><br>
+          <a class="visit-link" href="https://sloth-token.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Banque Libano-Française</h5>
+          <span>https://www.eblf.com/</span><br>
+          <a class="visit-link" href="https://www.eblf.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Bank Audi</h5>
+          <span>https://www.bankaudi.com.lb/</span><br>
+          <a class="visit-link" href="https://www.bankaudi.com.lb/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>NEO by Bank Audi</h5>
+          <span>https://www.neo.com.lb/</span><br>
+          <a class="visit-link" href="https://www.neo.com.lb/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INSURANCE -->
+    <h4 class="mt-5 mb-3">Insurance</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Libano Suisse Insurance</h5>
+          <span>https://app.libano-suisse.com/</span><br>
+          <a class="visit-link" href="https://app.libano-suisse.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>KIC Insurance</h5>
+          <span>https://www.kic-kw.com/</span><br>
+          <a class="visit-link" href="https://www.kic-kw.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BUSINESSES -->
+    <h4 class="mt-5 mb-3">Businesses</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>IQOS Lebanon</h5>
+          <span>https://lb.iqos.com/</span><br>
+          <a class="visit-link" href="https://lb.iqos.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>IQOS Trade-in</h5>
+          <span>https://lb.iqos.com/en/trade-in</span><br>
+          <a class="visit-link" href="https://lb.iqos.com/en/trade-in" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>IQOS Microsite</h5>
+          <span>https://lb.iqospsp.com/en/microsite/home</span><br>
+          <a class="visit-link" href="https://lb.iqospsp.com/en/microsite/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>NAPCO</h5>
+          <span>https://www.woosooqconnect.com/</span><br>
+          <a class="visit-link" href="https://www.woosooqconnect.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>PsLab</h5>
+          <span>https://www.pslab.lighting/</span><br>
+          <a class="visit-link" href="https://www.pslab.lighting/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Mindware</h5>
+          <span>https://mindware.net/</span><br>
+          <a class="visit-link" href="https://mindware.net/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PHARMA & MEDICAL -->
+    <h4 class="mt-5 mb-3">Pharmaceutical &amp; Medical</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Itico Pharma</h5>
+          <span>https://iticopharma.com/english/home</span><br>
+          <a class="visit-link" href="https://iticopharma.com/english/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>LAU Medical Center — Rizk Hospital</h5>
+          <span>https://www.laumcrh.com/</span><br>
+          <a class="visit-link" href="https://www.laumcrh.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Dallah Hospital</h5>
+          <span>https://www.dallah-hospital.com/english/home</span><br>
+          <a class="visit-link" href="https://www.dallah-hospital.com/english/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Dallah Health</h5>
+          <span>https://www.dallahhealth.com/english/home</span><br>
+          <a class="visit-link" href="https://www.dallahhealth.com/english/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AIRPORTS -->
+    <h4 class="mt-5 mb-3">Airports</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Erbil International Airport</h5>
+          <span>https://www.eia.krd/</span><br>
+          <a class="visit-link" href="https://www.eia.krd/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>M.E.A — Middle East Airlines</h5>
+          <span>https://www.mea.com.lb/</span><br>
+          <a class="visit-link" href="https://www.mea.com.lb/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CARGO & SHIPPING -->
+    <h4 class="mt-5 mb-3">Cargo &amp; Shipping</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Nenuphar</h5>
+          <span>https://www.nenuphar-lb.com/</span><br>
+          <a class="visit-link" href="https://www.nenuphar-lb.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>The Net Group</h5>
+          <span>https://www.thenetglobal.group/</span><br>
+          <a class="visit-link" href="https://www.thenetglobal.group/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>LibanPost</h5>
+          <span>https://www.libanpost.com/english/individuals</span><br>
+          <a class="visit-link" href="https://www.libanpost.com/english/individuals" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESTAURANTS -->
+    <h4 class="mt-5 mb-3">Restaurants</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>New Shanghai</h5>
+          <span>https://newshanghaime.com/</span><br>
+          <a class="visit-link" href="https://newshanghaime.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Butcher Shop &amp; Grill</h5>
+          <span>https://butchershoparabia.com/</span><br>
+          <a class="visit-link" href="https://butchershoparabia.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Minyums</h5>
+          <span>http://www.minyums.com/en/</span><br>
+          <a class="visit-link" href="http://www.minyums.com/en/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Ritage Garden</h5>
+          <span>https://www.ritagegarden.com/english/ritage/garden</span><br>
+          <a class="visit-link" href="https://www.ritagegarden.com/english/ritage/garden" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Maroun Chedid</h5>
+          <span>https://www.marounchedid.com/english/home</span><br>
+          <a class="visit-link" href="https://www.marounchedid.com/english/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FINTECH -->
+    <h4 class="mt-5 mb-3">Fintechs</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Seen Platform</h5>
+          <span>https://www.seenplatform.com/en/home</span><br>
+          <a class="visit-link" href="https://www.seenplatform.com/en/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Fintech Galaxy</h5>
+          <span>https://www.fintech-galaxy.com/</span><br>
+          <a class="visit-link" href="https://www.fintech-galaxy.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Finhub Bahrain</h5>
+          <span>https://www.finhub973.com/Bahrain</span><br>
+          <a class="visit-link" href="https://www.finhub973.com/Bahrain" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Corbeh</h5>
+          <span>https://corbeh.com/</span><br>
+          <a class="visit-link" href="https://corbeh.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EDUCATION -->
+    <h4 class="mt-5 mb-3">Education</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Université Antonine</h5>
+          <span>https://ua.edu.lb/en/home</span><br>
+          <a class="visit-link" href="https://ua.edu.lb/en/home" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>American University of the Middle East</h5>
+          <span>https://www.aum.edu.kw/</span><br>
+          <a class="visit-link" href="https://www.aum.edu.kw/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Collège Protestant Français</h5>
+          <span>https://www.cpf.edu.lb/</span><br>
+          <a class="visit-link" href="https://www.cpf.edu.lb/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Lebanese American University (LAU)</h5>
+          <span>https://www.lau.edu.lb/</span><br>
+          <a class="visit-link" href="https://www.lau.edu.lb/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ORGANISATIONS -->
+    <h4 class="mt-5 mb-3">Organisations &amp; Administrations</h4>
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>CEDRO — UNDP</h5>
+          <span>https://www.cedro-undp.org/</span><br>
+          <a class="visit-link" href="https://www.cedro-undp.org/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>BabySentry</h5>
+          <span>https://www.babysentry.com/</span><br>
+          <a class="visit-link" href="https://www.babysentry.com/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="project-card">
+          <h5>Lebanese Petroleum Administration (LPA)</h5>
+          <span>https://www.lpa.gov.lb/</span><br>
+          <a class="visit-link" href="https://www.lpa.gov.lb/" target="_blank">Visit Website</a>
+        </div>
+      </div>
+
+    </div>
+
+    <br><br>
+  </div>
+
+  <div class="footer">
+    © 2025 — Designed &amp; Developed by Omar Saab
+  </div>
+
+</body>
+
+</html>

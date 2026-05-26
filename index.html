@@ -465,8 +465,9 @@
     .certificate-slide:hover .certificate-slide-title::after {
       background: var(--brand);
     }
+
     .certificate-slide:hover img {
-      filter:grayscale(0);
+      filter: grayscale(0);
     }
 
     .certificate-slide img {
@@ -475,8 +476,8 @@
       object-fit: contain;
       background: red;
       /* border-bottom: 1px solid var(--line); */
-      filter:grayscale(1);
-      transition:all 0.3s ease-in-out;
+      filter: grayscale(1);
+      transition: all 0.3s ease-in-out;
     }
 
     .certificate-slide-body {
@@ -790,7 +791,7 @@
       grid-template-columns: minmax(360px, 0.95fr) minmax(0, 1.05fr);
       gap: clamp(28px, 5vw, 64px);
       align-items: center;
-      min-height: 560px;
+      /* min-height: 560px; */
     }
 
     .featured-stack {
@@ -802,10 +803,10 @@
     .featured-photo-card {
       position: absolute;
       inset: 0;
-      width: min(100%, 520px);
+      /* width: min(100%, 520px); */
       margin: auto;
       padding: 0;
-      border: 1px solid rgba(18, 20, 23, 0.12);
+      border: none;
       border-radius: 8px;
       background: var(--white);
       box-shadow: 0 24px 58px rgba(18, 20, 23, 0.16);
@@ -816,6 +817,7 @@
       opacity: var(--stack-o, 1);
       z-index: var(--stack-z, 1);
       transition: transform 640ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 320ms ease, box-shadow 220ms ease;
+      height: 275px;
     }
 
     .featured-photo-card:hover,
@@ -860,10 +862,12 @@
     }
 
     .featured-photo-card img {
-      /* width: 100%; */
-      /* height: 100%; */
+      width: 100%;
+      height: auto;
       /* min-height: 390px; */
-      object-fit: contain;
+      /* object-fit: contain; */
+      /* border:1px solid red; */
+      display: block;
     }
 
     .featured-photo-label {
@@ -962,13 +966,78 @@
 
     .featured-controls {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 8px;
-      margin-top: 26px;
+      /* margin-top: 26px; */
+    }
+
+    .featured-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .featured-control-button {
+      width: 24px;
+      height: 24px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+      border: none;
+      border-radius: 8px;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .featured-control-button:hover,
+    .featured-control-button:focus-visible {
+      color: var(--white);
+      border-color: var(--brand-dark);
+      background: var(--brand-dark);
+      transform: translateY(-1px);
+    }
+
+    .featured-control-button:hover svg,
+    .featured-control-button:focus-visible svg {
+      stroke: white;
+    }
+
+    .featured-control-button:hover svg.play-icon,
+    .featured-control-button:focus-visible svg.play-icon {
+      fill: white;
+    }
+
+    .featured-control-button svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--brand);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      transition: all 180ms ease;
+    }
+
+    .featured-control-button .play-icon {
+      display: none;
+      fill:var(--brand);
+    }
+
+    .featured-control-button.is-paused .pause-icon {
+      display: none;
+    }
+
+    .featured-control-button.is-paused .play-icon {
+      display: block;
     }
 
     .featured-dot {
       position: relative;
-      width: 34px;
+      width: 20px;
       height: 5px;
       padding: 0;
       border: none;
@@ -2287,8 +2356,8 @@
             <h2 class="section-title">Selected projects with clear business context.</h2>
           </div>
           <p>
-            Four representative builds showing logistics operations, AI commerce, agency systems,
-            and sports platform delivery.
+            Six representative builds showing logistics operations, AI commerce, agency systems,
+            sports platform delivery, healthcare product experiences, and ecommerce administration.
           </p>
         </div>
 
@@ -2296,29 +2365,39 @@
           <div class="featured-stack" aria-label="Featured project previews">
             <button class="featured-photo-card is-active" type="button" data-featured-card="0"
               aria-label="Show Masarak Platform">
-              <img src="proj1.png" alt="Masarak platform website preview">
+              <img src="proj1.jpg" alt="Masarak platform website preview">
               <!-- <span class="featured-photo-label"><span>Masarak Platform</span><span>01</span></span> -->
             </button>
             <button class="featured-photo-card is-next" type="button" data-featured-card="1"
               aria-label="Show AI Grocery Shopping">
-              <img src="proj2.png" alt="Fruugle AI grocery website preview">
+              <img src="proj2.jpg" alt="Fruugle AI grocery website preview">
               <!-- <span class="featured-photo-label"><span>AI Grocery Shopping</span><span>02</span></span> -->
             </button>
             <button class="featured-photo-card is-third" type="button" data-featured-card="2" aria-label="Show ZER01NE">
-              <img src="proj3.png" alt="ZER01NE agency website preview">
+              <img src="proj3.jpg" alt="ZER01NE agency website preview">
               <!-- <span class="featured-photo-label"><span>ZER01NE</span><span>03</span></span> -->
             </button>
             <button class="featured-photo-card is-back" type="button" data-featured-card="3"
               aria-label="Show Riyadah App">
-              <img src="proj4.png" alt="Riyadah app website preview">
+              <img src="proj4.jpg" alt="Riyadah app website preview">
               <!-- <span class="featured-photo-label"><span>Riyadah App</span><span>04</span></span> -->
+            </button>
+            <button class="featured-photo-card is-back" type="button" data-featured-card="4"
+              aria-label="Show Memora Aligners">
+              <img src="proj5.jpg" alt="Memora Aligners website preview">
+              <!-- <span class="featured-photo-label"><span>Memora Aligners</span><span>05</span></span> -->
+            </button>
+            <button class="featured-photo-card is-back" type="button" data-featured-card="5"
+              aria-label="Show Shopico Admin Panel">
+              <img src="proj6.jpg" alt="Shopico admin panel dashboard preview">
+              <!-- <span class="featured-photo-label"><span>Shopico Admin Panel</span><span>06</span></span> -->
             </button>
           </div>
 
           <div>
             <div class="featured-detail-wrap">
               <article class="featured-detail is-active" data-featured-detail="0">
-                <span class="featured-count">01</span>
+                <!-- <span class="featured-count">01</span> -->
                 <div class="featured-tags">
                   <span class="pill">Logistics</span>
                   <span class="pill">Port operations</span>
@@ -2332,21 +2411,21 @@
               </article>
 
               <article class="featured-detail" data-featured-detail="1">
-                <span class="featured-count">02</span>
+                <!-- <span class="featured-count">02</span> -->
                 <div class="featured-tags">
                   <span class="pill">AI commerce</span>
                   <span class="pill">Catalog ingestion</span>
                   <span class="pill">50k+ products</span>
                 </div>
-                <h3>AI Grocery Shopping</h3>
+                <h3>Fruugle App</h3>
                 <p>An AI-assisted grocery experience with large product ingestion, structured discovery, and
                   commerce-oriented product handling.</p>
-                <a class="text-link" href="https://fruugle.ai/" target="_blank" rel="noopener noreferrer">View
-                  project</a>
+                <a class="text-link" href="https://fruugle.ai/" target="_blank" rel="noopener noreferrer">Visit
+                  website</a>
               </article>
 
               <article class="featured-detail" data-featured-detail="2">
-                <span class="featured-count">03</span>
+                <!-- <span class="featured-count">03</span> -->
                 <div class="featured-tags">
                   <span class="pill">Software agency</span>
                   <span class="pill">Brand system</span>
@@ -2355,12 +2434,13 @@
                 <h3>ZER01NE</h3>
                 <p>A development agency presence designed to communicate services, credibility, and technical delivery
                   without unnecessary friction.</p>
-                <a class="text-link" href="http://zeroone-code.com/" target="_blank" rel="noopener noreferrer">View
-                  project</a>
+                <a class="text-link" href="http://omarsaab.net/preview/zer01ne" target="_blank"
+                  rel="noopener noreferrer">Visit
+                  website</a>
               </article>
 
               <article class="featured-detail" data-featured-detail="3">
-                <span class="featured-count">04</span>
+                <!-- <span class="featured-count">04</span> -->
                 <div class="featured-tags">
                   <span class="pill">Sports tech</span>
                   <span class="pill">Clubs</span>
@@ -2371,15 +2451,78 @@
                   community workflows.</p>
                 <span class="text-link">Website coming soon</span>
               </article>
+
+              <article class="featured-detail" data-featured-detail="4">
+                <!-- <span class="featured-count">05</span> -->
+                <div class="featured-tags">
+                  <span class="pill">Healthcare</span>
+                  <span class="pill">Dental aligners</span>
+                  <span class="pill">Product website</span>
+                </div>
+                <h3>Memora Aligners</h3>
+                <p>A dental aligner product website focused on clear patient education, brand trust, and conversion
+                  paths for dentists and customers.</p>
+                <a class="text-link" href="https://memoraaligners.com/" target="_blank" rel="noopener noreferrer">Visit
+                  website</a>
+              </article>
+
+              <article class="featured-detail" data-featured-detail="5">
+                <!-- <span class="featured-count">06</span> -->
+                <div class="featured-tags">
+                  <span class="pill">Ecommerce</span>
+                  <span class="pill">Admin dashboard</span>
+                  <span class="pill">Operations</span>
+                </div>
+                <h3>Shopico Admin Panel</h3>
+                <p>An ecommerce administration dashboard for managing products, categories, orders, users, wallet
+                  top-ups, coupons, branches, currencies, and store operations.</p>
+                <a class="text-link" href="https://admin.shopico-sy.com/" target="_blank"
+                  rel="noopener noreferrer">Visit website</a>
+              </article>
             </div>
 
             <div class="featured-controls" aria-label="Featured project controls">
-              <button class="featured-dot is-active" type="button" data-featured-control="0"
-                aria-label="Show Masarak Platform"></button>
-              <button class="featured-dot" type="button" data-featured-control="1"
-                aria-label="Show AI Grocery Shopping"></button>
-              <button class="featured-dot" type="button" data-featured-control="2" aria-label="Show ZER01NE"></button>
-              <button class="featured-dot" type="button" data-featured-control="3" aria-label="Show Riyadah App"></button>
+              <div class="featured-controls">
+                <button class="featured-control-button" type="button" data-featured-toggle
+                  aria-label="Pause featured work carousel" aria-pressed="false">
+                  <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 5v14"></path>
+                    <path d="M16 5v14"></path>
+                  </svg>
+                  <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m8 5 11 7-11 7V5Z"></path>
+                  </svg>
+                </button>
+
+                <div class="featured-dots">
+                  <button class="featured-dot is-active" type="button" data-featured-control="0"
+                    aria-label="Show Masarak Platform"></button>
+                  <button class="featured-dot" type="button" data-featured-control="1"
+                    aria-label="Show AI Grocery Shopping"></button>
+                  <button class="featured-dot" type="button" data-featured-control="2"
+                    aria-label="Show ZER01NE"></button>
+                  <button class="featured-dot" type="button" data-featured-control="3"
+                    aria-label="Show Riyadah App"></button>
+                  <button class="featured-dot" type="button" data-featured-control="4"
+                    aria-label="Show Memora Aligners"></button>
+                  <button class="featured-dot" type="button" data-featured-control="5"
+                    aria-label="Show Shopico Admin Panel"></button>
+                </div>
+              </div>
+              <div>
+                <button class="featured-control-button" type="button" data-featured-prev
+                  aria-label="Show previous featured project">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6"></path>
+                  </svg>
+                </button>
+                <button class="featured-control-button" type="button" data-featured-next
+                  aria-label="Show next featured project">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"></path>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -2667,13 +2810,21 @@
       const featuredCards = [...featuredWork.querySelectorAll("[data-featured-card]")];
       const featuredDetails = [...featuredWork.querySelectorAll("[data-featured-detail]")];
       const featuredControls = [...featuredWork.querySelectorAll("[data-featured-control]")];
+      const featuredPreviousButton = featuredWork.querySelector("[data-featured-prev]");
+      const featuredNextButton = featuredWork.querySelector("[data-featured-next]");
+      const featuredToggleButton = featuredWork.querySelector("[data-featured-toggle]");
       const stackClasses = ["is-active", "is-next", "is-third", "is-back"];
       const featuredDelay = 3600;
       let activeFeaturedIndex = 0;
-      let featuredTimer = window.setInterval(showNextFeatured, featuredDelay);
+      let featuredTimer = null;
+      let isFeaturedPaused = false;
 
       function restartFeaturedProgress() {
         featuredControls.forEach((control) => control.classList.remove("is-progressing"));
+
+        if (isFeaturedPaused || !featuredTimer) {
+          return;
+        }
 
         const activeControl = featuredControls[activeFeaturedIndex];
 
@@ -2711,16 +2862,44 @@
         setFeaturedProject((activeFeaturedIndex + 1) % featuredCards.length);
       }
 
-      function restartFeaturedTimer() {
+      function showPreviousFeatured() {
+        setFeaturedProject((activeFeaturedIndex - 1 + featuredCards.length) % featuredCards.length);
+      }
+
+      function clearFeaturedTimer() {
         if (featuredTimer) {
           window.clearInterval(featuredTimer);
+          featuredTimer = null;
+        }
+      }
+
+      function restartFeaturedTimer() {
+        clearFeaturedTimer();
+
+        if (isFeaturedPaused) {
+          restartFeaturedProgress();
+          return;
         }
 
         featuredTimer = window.setInterval(showNextFeatured, featuredDelay);
         restartFeaturedProgress();
       }
 
+      function syncFeaturedToggleButton() {
+        if (!featuredToggleButton) {
+          return;
+        }
+
+        featuredToggleButton.classList.toggle("is-paused", isFeaturedPaused);
+        featuredToggleButton.setAttribute("aria-pressed", String(isFeaturedPaused));
+        featuredToggleButton.setAttribute(
+          "aria-label",
+          isFeaturedPaused ? "Play featured work carousel" : "Pause featured work carousel"
+        );
+      }
+
       setFeaturedProject(0);
+      restartFeaturedTimer();
 
       featuredCards.forEach((card, index) => {
         card.addEventListener("click", () => {
@@ -2736,12 +2915,41 @@
         });
       });
 
+      if (featuredPreviousButton) {
+        featuredPreviousButton.addEventListener("click", () => {
+          showPreviousFeatured();
+          restartFeaturedTimer();
+        });
+      }
+
+      if (featuredNextButton) {
+        featuredNextButton.addEventListener("click", () => {
+          showNextFeatured();
+          restartFeaturedTimer();
+        });
+      }
+
+      if (featuredToggleButton) {
+        featuredToggleButton.addEventListener("click", () => {
+          isFeaturedPaused = !isFeaturedPaused;
+          syncFeaturedToggleButton();
+
+          if (isFeaturedPaused) {
+            clearFeaturedTimer();
+            restartFeaturedProgress();
+            return;
+          }
+
+          restartFeaturedTimer();
+        });
+      }
+
       featuredWork.addEventListener("mouseenter", () => {
-        window.clearInterval(featuredTimer);
-        featuredTimer = null;
+        clearFeaturedTimer();
       });
 
       featuredWork.addEventListener("mouseleave", restartFeaturedTimer);
+      syncFeaturedToggleButton();
     }
 
     const skillsTabsRoot = document.querySelector("[data-skills-tabs]");

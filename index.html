@@ -212,6 +212,119 @@
       fill: currentColor;
     }
 
+    .download-menu {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: stretch;
+      min-width: 142px;
+      border: 1px solid var(--brand-dark);
+      border-radius: 8px;
+      color: var(--brand-dark);
+      transition: min-width 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .download-menu summary {
+      min-height: 46px;
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .download-menu summary.button {
+      border: 0;
+      border-radius: 0;
+    }
+
+    .download-menu summary.button:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .download-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .download-menu summary::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform 180ms ease;
+    }
+
+    .download-menu[open] summary::after {
+      transform: rotate(225deg) translateY(-1px);
+    }
+
+    .download-menu[open] summary {
+      background: rgba(255, 255, 255, 0.84);
+    }
+
+    .download-menu[open] {
+      min-width: 230px;
+      border-radius: 8px 8px 0 0;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 16px 40px rgba(18, 20, 23, 0.14);
+    }
+
+    .download-options {
+      position: absolute;
+      top: 100%;
+      left: -1px;
+      right: -1px;
+      z-index: 20;
+      width: 100%;
+      padding: 4px 6px 6px;
+      border: 1px solid var(--brand-dark);
+      border-top: 1px solid rgba(18, 20, 23, 0.1);
+      border-radius: 0 0 8px 8px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 16px 40px rgba(18, 20, 23, 0.14);
+      animation: download-menu-in 150ms ease-out;
+    }
+
+    @keyframes download-menu-in {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .download-options a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: 9px;
+      color: #1f2937;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: color 150ms ease, background 150ms ease;
+    }
+
+    .download-options a:hover,
+    .download-options a:focus-visible {
+      color: var(--brand-dark);
+      background: rgba(15, 118, 110, 0.08);
+    }
+
+    .download-options svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -575,6 +688,30 @@
       background: currentColor;
       transition: all 0.3s ease-in-out;
       clip-path: path("M8.5 1H12v3.5h-1.4V3.4L6.9 7.1l-1-1 3.7-3.7H8.5V1ZM2.4 2.4h4V1h-4C1.6 1 1 1.6 1 2.4v9.2c0 .8.6 1.4 1.4 1.4h9.2c.8 0 1.4-.6 1.4-1.4v-4h-1.4v4H2.4V2.4Z");
+    }
+
+    .certificate-dots {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .certificate-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(18, 20, 23, 0.22);
+      cursor: pointer;
+      transition: width 180ms ease, background 180ms ease;
+    }
+
+    .certificate-dot.is-active {
+      width: 24px;
+      background: var(--brand);
     }
 
     .certificate-card {
@@ -1156,6 +1293,13 @@
       color: var(--brand);
     }
 
+    .text-link svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+
     .work-row {
       display: flex;
       flex-direction: column;
@@ -1551,6 +1695,47 @@
         grid-template-columns: 1fr;
       }
 
+      .certificates-carousel {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-mask-image: none;
+        mask-image: none;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .certificates-carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .certificates-track {
+        width: auto;
+        animation: none;
+      }
+
+      .certificate-carousel-item {
+        flex: 0 0 82%;
+        width: 82%;
+        scroll-snap-align: start;
+      }
+
+      .certificate-carousel-item[aria-hidden="true"] {
+        display: none;
+      }
+
+      .certificate-slide {
+        padding: 0;
+      }
+
+      .certificate-slide img {
+        filter: grayscale(0);
+      }
+
+      .certificate-dots {
+        display: flex;
+      }
+
       .featured-showcase {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -1725,6 +1910,12 @@
       .footer .container {
         display: grid;
       }
+
+      .back-to-top,
+      .footer.is-visible .back-to-top,
+      .footer.is-visible .back-to-top.is-active {
+        display: none;
+      }
     }
 
     @media (max-width: 420px) {
@@ -1780,14 +1971,34 @@
 
           <div class="hero-actions">
             <a class="button primary" href="#featured">View selected work</a>
-            <a class="button secondary" href="omarsaab_cv.pdf" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M12 3c.6 0 1 .4 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l2.3 2.3V4c0-.6.4-1 1-1ZM5 18c.6 0 1 .4 1 1v1h12v-1a1 1 0 1 1 2 0v2c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1Z">
-                </path>
-              </svg>
-              Download CV
-            </a>
+            <details class="download-menu">
+              <summary class="button secondary">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 3c.6 0 1 .4 1 1v8.6l2.3-2.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l2.3 2.3V4c0-.6.4-1 1-1ZM5 18c.6 0 1 .4 1 1v1h12v-1a1 1 0 1 1 2 0v2c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1Z">
+                  </path>
+                </svg>
+                Download
+              </summary>
+              <div class="download-options">
+                <a href="omarsaab_cv.pdf" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M6 2h8l4 4v16H6V2Zm7 1.7V7h3.3L13 3.7ZM8 13h8v-2H8v2Zm0 4h8v-2H8v2Z">
+                    </path>
+                  </svg>
+                  Download CV
+                </a>
+                <a href="omarsaab_portfolio.ppt" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M4 4h16v12H4V4Zm2 2v8h12V6H6Zm4 12h4v2h3v2H7v-2h3v-2Zm-1.5-5h2V9.2h1.1c1.6 0 2.6-.8 2.6-2.1S13.2 5 11.6 5H8.5v8Zm2-5.4V6.7h1c.5 0 .8.3.8.9s-.3.9-.8.9h-1Z">
+                    </path>
+                  </svg>
+                  Download Portfolio
+                </a>
+              </div>
+            </details>
           </div>
 
           <div class="proof-grid" aria-label="Experience highlights">
@@ -1945,6 +2156,7 @@
               </a>
             </div>
           </div>
+          <div class="certificate-dots" aria-label="Certificate slider controls"></div>
           <div class="certificates-grid">
             <a class="certificate-card" href="Coursera%206GXL7MB99YN4.pdf" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -2823,7 +3035,11 @@
                 <p>Role: full-stack delivery and platform architecture. Built around logistics operations, service
                   access, and reliable workflows for business-critical port activity.</p>
                 <a class="text-link" href="https://masarak.gwy.iq/" target="_blank" rel="noopener noreferrer">Visit
-                  website</a>
+                  website
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"></path>
+                  </svg>
+                </a>
               </article>
 
               <article class="featured-detail" data-featured-detail="1">
@@ -2837,7 +3053,11 @@
                 <p>Role: product engineering and data workflow design. Supported 50k+ product ingestion, structured
                   discovery, and commerce-oriented catalog handling.</p>
                 <a class="text-link" href="https://fruugle.ai/" target="_blank" rel="noopener noreferrer">Visit
-                  website</a>
+                  website
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"></path>
+                  </svg>
+                </a>
               </article>
 
               <article class="featured-detail" data-featured-detail="2">
@@ -2852,7 +3072,11 @@
                   communicates credibility, capabilities, and technical execution clearly.</p>
                 <a class="text-link" href="http://omarsaab.net/preview/zer01ne" target="_blank"
                   rel="noopener noreferrer">Visit
-                  website</a>
+                  website
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"></path>
+                  </svg>
+                </a>
               </article>
 
               <article class="featured-detail" data-featured-detail="3">
@@ -2879,7 +3103,11 @@
                 <p>Role: healthcare product website delivery. Built patient education, brand trust, and conversion
                   paths for dental aligner customers and dentist audiences.</p>
                 <a class="text-link" href="https://memoraaligners.com/" target="_blank" rel="noopener noreferrer">Visit
-                  website</a>
+                  website
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"></path>
+                  </svg>
+                </a>
               </article>
 
               <article class="featured-detail" data-featured-detail="5">
@@ -2893,7 +3121,11 @@
                 <p>Role: ecommerce operations platform delivery. Designed admin workflows for products, categories,
                   orders, users, wallet top-ups, coupons, branches, currencies, and store operations.</p>
                 <a class="text-link" href="https://admin.shopico-sy.com/" target="_blank"
-                  rel="noopener noreferrer">Visit website</a>
+                  rel="noopener noreferrer">Visit website
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"></path>
+                  </svg>
+                </a>
               </article>
             </div>
 
@@ -3210,6 +3442,29 @@
     const contact = document.querySelector("#contact");
     const footer = document.querySelector(".footer");
     const backToTop = document.querySelector(".back-to-top");
+    const downloadMenus = [...document.querySelectorAll(".download-menu")];
+
+    if (downloadMenus.length) {
+      document.addEventListener("click", (event) => {
+        downloadMenus.forEach((menu) => {
+          if (!menu.contains(event.target)) {
+            menu.removeAttribute("open");
+          }
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          downloadMenus.forEach((menu) => menu.removeAttribute("open"));
+        }
+      });
+
+      downloadMenus.forEach((menu) => {
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => menu.removeAttribute("open"));
+        });
+      });
+    }
 
     if (contact && footer) {
       const footerObserver = new IntersectionObserver((entries) => {
@@ -3246,6 +3501,7 @@
 
     if (certificatesCarousel) {
       const certificateItems = [...certificatesCarousel.children];
+      const certificateDots = document.querySelector(".certificate-dots");
       const certificateTrack = document.createElement("div");
       certificateTrack.className = "certificates-track";
 
@@ -3258,6 +3514,40 @@
       });
 
       certificatesCarousel.appendChild(certificateTrack);
+
+      if (certificateDots) {
+        const dots = certificateItems.map((item, index) => {
+          const dot = document.createElement("button");
+          dot.className = `certificate-dot${index === 0 ? " is-active" : ""}`;
+          dot.type = "button";
+          dot.setAttribute("aria-label", `Show certificate ${index + 1}`);
+          dot.addEventListener("click", () => {
+            certificatesCarousel.scrollTo({
+              left: item.offsetLeft,
+              behavior: "smooth",
+            });
+          });
+          certificateDots.appendChild(dot);
+          return dot;
+        });
+
+        function syncCertificateDots() {
+          const carouselLeft = certificatesCarousel.scrollLeft;
+          const activeIndex = certificateItems.reduce((closestIndex, item, index) => {
+            const closestDistance = Math.abs(certificateItems[closestIndex].offsetLeft - carouselLeft);
+            const itemDistance = Math.abs(item.offsetLeft - carouselLeft);
+            return itemDistance < closestDistance ? index : closestIndex;
+          }, 0);
+
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("is-active", index === activeIndex);
+          });
+        }
+
+        certificatesCarousel.addEventListener("scroll", syncCertificateDots, { passive: true });
+        window.addEventListener("resize", syncCertificateDots);
+        syncCertificateDots();
+      }
     }
 
     const featuredWork = document.querySelector("[data-featured-work]");

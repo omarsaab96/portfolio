@@ -73,6 +73,12 @@ a {
     letter-spacing: 0;
 }
 
+.brand img{
+    display: block;
+    width:200px;
+}
+
+
 .brand-mark {
     width: 34px;
     height: 34px;
@@ -1832,8 +1838,13 @@ h2.section-title {
 
     .nav {
         align-items: flex-start;
+        justify-content: center;
         min-height: auto;
         padding: 14px 0;
+    }
+
+    .brand img{
+        width:150px;
     }
 
     .nav-links {
